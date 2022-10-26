@@ -1,6 +1,5 @@
 package com.M3S02Ex2.Biblioteca.service;
 
-import com.M3S02Ex2.Biblioteca.Entity.Author;
 import com.M3S02Ex2.Biblioteca.Entity.Book;
 import com.M3S02Ex2.Biblioteca.model.BookRepository;
 import com.M3S02Ex2.Biblioteca.service.interfaces.BookService;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class BookServiceIml implements BookService {
 

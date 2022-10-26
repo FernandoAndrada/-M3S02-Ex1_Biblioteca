@@ -1,6 +1,5 @@
 package com.M3S02Ex2.Biblioteca.Entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

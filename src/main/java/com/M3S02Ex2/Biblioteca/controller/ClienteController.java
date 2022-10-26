@@ -1,0 +1,60 @@
+package com.M3S02Ex2.Biblioteca.controller;
+
+import com.M3S02Ex2.Biblioteca.Entity.Book;
+import com.M3S02Ex2.Biblioteca.Entity.Client;
+import com.M3S02Ex2.Biblioteca.service.interfaces.ClientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.websocket.server.PathParam;
+import java.util.List;
+
+@RestController
+@RequestMapping("/clientes")
+public class ClienteController {
+
+    @Autowired
+    private ClientService clientService;
+
+    @PostMapping
+    public ResponseEntity<Client> salvar(@RequestBody Client client) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(this.clientService.salvar(client));
+    }
+
+    @PutMapping
+    public ResponseEntity<Client> atualizar(@RequestBody Client client) {
+        return ResponseEntity.ok(this.clientService.atualizar(client));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Client> buscar(@PathVariable Long id){
+        Client client = this.clientService.buscar(id);
+
+        if(client == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(this.clientService.buscar(id));
+    }
+
+    @GetMapping("/buscar-por-nome")
+    public ResponseEntity<Client> buscarPorName(@PathParam("name") String name){
+        return ResponseEntity.ok(this.clientService.buscarPorName(name));
+    }
+
+    @GetMapping
+    public List<Client> listar(){
+
+        return ResponseEntity.ok((this.clientService.listar())).getBody();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> excluir(@PathVariable Long id) {
+        this.clientService.excluir(id);
+        return ResponseEntity.ok("Excluido com sucesso!");
+    }
+
+}
