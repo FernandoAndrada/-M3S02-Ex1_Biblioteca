@@ -1,6 +1,5 @@
 package com.M3S02Ex2.Biblioteca.controller;
 
-import com.M3S02Ex2.Biblioteca.Entity.Book;
 import com.M3S02Ex2.Biblioteca.Entity.Client;
 import com.M3S02Ex2.Biblioteca.service.interfaces.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;

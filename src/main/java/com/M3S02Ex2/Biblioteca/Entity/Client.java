@@ -1,5 +1,6 @@
 package com.M3S02Ex2.Biblioteca.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,6 +25,7 @@ public class Client {
 
     @Size(max = 11)
     private String cpf;
+
 
     public static boolean isPresent() {
         return true;

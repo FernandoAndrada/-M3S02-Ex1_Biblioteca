@@ -1,18 +1,15 @@
 package com.M3S02Ex2.Biblioteca.service;
-/*
+
 import com.M3S02Ex2.Biblioteca.Entity.Card;
 import com.M3S02Ex2.Biblioteca.model.CardRepository;
 import com.M3S02Ex2.Biblioteca.service.interfaces.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class CardServiceImp implements CardService {
-
 
     @Autowired
     private CardRepository cardRepository;
@@ -42,14 +39,6 @@ public class CardServiceImp implements CardService {
         }
         return null;
     }
-
-    @Override
-    public Card buscarPorNumber(String number) {
-        return this.cardRepository.findByNumber(number).orElseThrow(() -> {
-            throw new EntityNotFoundException("Não foi possível encontrar um prato com o nome: " + number);
-        });
-    }
-
     @Override
     public List<Card> listar() {
         return this.cardRepository.findAll();
@@ -60,7 +49,4 @@ public class CardServiceImp implements CardService {
         this.cardRepository.deleteById(id);
 
     }
-
-
 }
-        */

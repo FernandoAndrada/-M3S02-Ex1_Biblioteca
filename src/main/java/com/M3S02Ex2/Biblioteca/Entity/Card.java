@@ -1,14 +1,17 @@
 package com.M3S02Ex2.Biblioteca.Entity;
-/*
+
+import com.M3S02Ex2.Biblioteca.service.TypeCard;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,15 +24,27 @@ public class Card {
     private Long id;
 
     @NotNull
+    @Size(max = 16)
     private String number;
 
+    private Double limite;
 
-    private Double limit;
+    private Double currentLimite;
 
+    private String tipoCard;
 
-    private Double currentLimit;
+    //private Enum<TypeCard> tipo;
 
-    private String type;
+    @ManyToOne
+    private Client client;
+
+//    public Enum<TypeCard> getTipo() {
+//        return tipo;
+//    }
+//
+//    public void setTipo(Enum<TypeCard> tipo) {
+//        this.tipo = tipo;
+//    }
 
     public static boolean isPresent() {
         return true;
@@ -51,28 +66,19 @@ public class Card {
         this.number = number;
     }
 
-    public Double getLimit() {
-        return limit;
+    public Double getLimite() {
+        return limite;
     }
 
-    public void setLimit(Double limit) {
-        this.limit = limit;
+    public void setLimite(Double limit) {
+        this.limite = limit;
     }
 
-    public Double getCurrentLimit() {
-        return currentLimit;
+    public Double getCurrentLimite() {
+        return currentLimite;
     }
 
-    public void setCurrentLimit(Double currentLimit) {
-        this.currentLimit = currentLimit;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setCurrentLimite(Double currentLimit) {
+        this.currentLimite = currentLimit;
     }
 }
-        */
