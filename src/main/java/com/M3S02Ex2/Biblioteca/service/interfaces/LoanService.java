@@ -15,4 +15,6 @@ public interface LoanService {
     List<Loan> listar();
 
     void excluir(Long id);
+
+    Loan fecharLoan(Long idLoan, String numeroCartao);
 }

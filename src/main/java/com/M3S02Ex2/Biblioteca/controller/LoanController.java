@@ -1,6 +1,7 @@
 package com.M3S02Ex2.Biblioteca.controller;
 
 import com.M3S02Ex2.Biblioteca.Entity.Loan;
+import com.M3S02Ex2.Biblioteca.model.LoanRepository;
 import com.M3S02Ex2.Biblioteca.service.interfaces.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ public class LoanController {
     @Autowired
     private LoanService loanService;
 
+    @Autowired
+    private LoanRepository loanRepository;
+
     @PostMapping
     public ResponseEntity<Loan> salvar(@RequestBody Loan loan) {
         return ResponseEntity
@@ -27,6 +31,11 @@ public class LoanController {
     @PutMapping
     public ResponseEntity<Loan> atualizar(@RequestBody Loan loan) {
         return ResponseEntity.ok(this.loanService.atualizar(loan));
+    }
+
+    @PutMapping("fechar-loan/{idLoan}")
+    public ResponseEntity<Loan> fecharLoan(@PathVariable Long idLoan, @PathParam("numeroCartao") String numeroCartao) {
+        return ResponseEntity.ok(this.loanService.fecharLoan(idLoan, numeroCartao));
     }
 
     @GetMapping("/{id}")

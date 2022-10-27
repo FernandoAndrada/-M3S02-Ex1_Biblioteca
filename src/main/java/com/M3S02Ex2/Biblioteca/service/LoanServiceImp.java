@@ -1,7 +1,9 @@
 package com.M3S02Ex2.Biblioteca.service;
 
+import com.M3S02Ex2.Biblioteca.Entity.Card;
 import com.M3S02Ex2.Biblioteca.Entity.Loan;
 import com.M3S02Ex2.Biblioteca.model.LoanRepository;
+import com.M3S02Ex2.Biblioteca.service.interfaces.CardService;
 import com.M3S02Ex2.Biblioteca.service.interfaces.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,9 @@ public class LoanServiceImp implements LoanService {
 
     @Autowired
     private LoanRepository loanRepository;
+
+    @Autowired
+    private CardService cardService;
 
     @Override
     public Loan salvar(Loan loan) {
@@ -51,5 +56,10 @@ public class LoanServiceImp implements LoanService {
     @Override
     public void excluir(Long id) {
         this.loanRepository.deleteById(id);
+    }
+
+    @Override
+    public Loan fecharLoan(Long idLoan, String numeroCartao) {
+        return null;
     }
 }
