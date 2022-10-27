@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.util.List;
 
@@ -18,7 +19,10 @@ public class ClienteController {
     private ClientService clientService;
 
     @PostMapping
-    public ResponseEntity<Client> salvar(@RequestBody Client client) {
+    public ResponseEntity<Object> salvar(@RequestBody @Valid Client client) {
+        if(clientService.existsByCpf(client.getCpf())){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("O CPF já está em uso!");
+        }
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(this.clientService.salvar(client));

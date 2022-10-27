@@ -19,4 +19,6 @@ public interface ClientService {
     void excluir(Long id);
 
     Client buscarPorName(String name);
+
+    boolean existsByCpf(String cpf);
 }

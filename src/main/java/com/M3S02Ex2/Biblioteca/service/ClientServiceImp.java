@@ -51,6 +51,11 @@ public class ClientServiceImp implements ClientService {
         });
     }
 
+    @Override
+    public boolean existsByCpf(String cpf) {
+        return clientRepository.existsByCpf(cpf);
+    }
+
 
     @Override
     public List<Client> listar() {

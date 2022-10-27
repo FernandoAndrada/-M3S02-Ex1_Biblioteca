@@ -4,11 +4,16 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
+import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
+@Validated
 @Entity
 @Data
 @NoArgsConstructor
@@ -22,9 +27,9 @@ public class Client {
     @NotNull
     private String name;
 
-    @Size(max = 11)
+    //@Size(max = 11)
+    @CPF
     private String cpf;
-
 
     public static boolean isPresent() {
         return true;

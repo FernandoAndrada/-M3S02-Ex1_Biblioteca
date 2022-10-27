@@ -7,17 +7,9 @@ public enum TypeCard {
     CREDITO("Crédito"),
     DEBITO("Débito");
 
-    private String tipo;
+    private String typeCard;
 
-    TypeCard (String tipo){
-        this.tipo = tipo;
-    }
-
-    public String setTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String type) {
-        this.tipo = tipo;
+    TypeCard(String typeCard) {
+        this.typeCard = typeCard;
     }
 }

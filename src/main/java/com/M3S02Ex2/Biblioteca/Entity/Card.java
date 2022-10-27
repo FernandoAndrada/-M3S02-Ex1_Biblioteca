@@ -1,5 +1,6 @@
 package com.M3S02Ex2.Biblioteca.Entity;
 
+import com.M3S02Ex2.Biblioteca.service.TypeCard;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,7 @@ public class Card {
 
     private Double currentLimite;
 
-    private String tipoCard;
+    private TypeCard typeCard;
 
     //private Enum<TypeCard> tipo;
 
