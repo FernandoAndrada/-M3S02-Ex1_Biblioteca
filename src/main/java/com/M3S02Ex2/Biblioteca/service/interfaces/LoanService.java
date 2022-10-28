@@ -16,5 +16,5 @@ public interface LoanService {
 
     void excluir(Long id);
 
-    Loan fecharLoan(Long idLoan, String numeroCartao);
+    Loan fecharLoan(Long id, String numeroCartao);
 }

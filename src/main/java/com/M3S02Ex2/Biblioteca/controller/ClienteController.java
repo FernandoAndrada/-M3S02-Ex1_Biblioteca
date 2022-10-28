@@ -34,13 +34,19 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Client> buscar(@PathVariable Long id){
+    public ResponseEntity<Object> buscar(@PathVariable @Valid Long id){
         Client client = this.clientService.buscar(id);
 
         if(client == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Este Id não existe!");
         }
-        return ResponseEntity.ok(this.clientService.buscar(id));
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(this.clientService.buscar(id));
+
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(this.clientService.buscar(id));
     }
 
     @GetMapping("/buscar-por-nome")

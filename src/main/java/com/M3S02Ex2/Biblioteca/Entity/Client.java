@@ -1,11 +1,13 @@
 package com.M3S02Ex2.Biblioteca.Entity;
 
+import com.M3S02Ex2.Biblioteca.model.CardRepository;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -20,6 +22,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Client {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,6 +34,7 @@ public class Client {
     //@Size(max = 11)
     @CPF
     private String cpf;
+
 
     public static boolean isPresent() {
         return true;
