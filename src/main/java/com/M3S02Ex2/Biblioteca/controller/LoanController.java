@@ -21,6 +21,8 @@ public class LoanController {
     @Autowired
     private LoanRepository loanRepository;
 
+
+
     @PostMapping
     public ResponseEntity<Loan> salvar(@RequestBody Loan loan) {
         return ResponseEntity
@@ -35,6 +37,7 @@ public class LoanController {
 
     @PutMapping("fechar-loan/{idLoan}")
     public ResponseEntity<Loan> fecharLoan(@PathVariable Long idLoan, @PathParam("numeroCartao") String numeroCartao) {
+
         return ResponseEntity.ok(this.loanService.fecharLoan(idLoan, numeroCartao));
     }
 

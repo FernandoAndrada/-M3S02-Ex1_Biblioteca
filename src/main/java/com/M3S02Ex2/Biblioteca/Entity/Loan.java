@@ -1,13 +1,10 @@
 package com.M3S02Ex2.Biblioteca.Entity;
 
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 
 @Entity
@@ -94,4 +91,5 @@ public class Loan {
     public void setClient(Client client) {
         this.client = client;
     }
+
 }

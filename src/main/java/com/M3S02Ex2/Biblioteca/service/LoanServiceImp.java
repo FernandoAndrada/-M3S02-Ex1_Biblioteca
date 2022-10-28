@@ -1,6 +1,5 @@
 package com.M3S02Ex2.Biblioteca.service;
 
-import com.M3S02Ex2.Biblioteca.Entity.Card;
 import com.M3S02Ex2.Biblioteca.Entity.Loan;
 import com.M3S02Ex2.Biblioteca.model.LoanRepository;
 import com.M3S02Ex2.Biblioteca.service.interfaces.CardService;
@@ -20,6 +19,7 @@ public class LoanServiceImp implements LoanService {
 
     @Autowired
     private CardService cardService;
+
 
     @Override
     public Loan salvar(Loan loan) {
